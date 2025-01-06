@@ -15,7 +15,7 @@ const requestLogger = (request, response, next) => {
   next();
 };
 const cors = require("cors");
-
+app.use(express.static("dist"));
 app.use(cors());
 app.use(requestLogger);
 let persons = [
