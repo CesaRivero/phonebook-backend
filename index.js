@@ -85,7 +85,7 @@ const generateId = () => {
 app.post("/api/persons", (req, res) => {
   const body = req.body;
 
-  if (!body.name || !body.phone) {
+  if (!body.name || !body.number) {
     return res.status(400).json({ Error: "content missing " });
   }
   if (persons.find((p) => p.name === body.name)) {
@@ -95,7 +95,7 @@ app.post("/api/persons", (req, res) => {
   const person = {
     id: generateId(),
     name: body.name,
-    phone: body.phone,
+    number: body.number,
   };
   persons = persons.concat(person);
   res.json(person);
